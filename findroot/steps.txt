@@ -1,0 +1,4 @@
+
+g++ -c test.cpp -o test.o
+g++ -c findroot.cpp -o findroot.o
+g++ test.o findroot.o test

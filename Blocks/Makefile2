@@ -1,0 +1,25 @@
+# automatic variables defined on page 111 of make book
+# $^ the names of all the prerequsites
+# $@ the name of the target
+# $< the name of the first prerequsite
+
+# might use your name
+LDSTATIC    = -lallen
+INCLUDES    = -I${HOME}/usr/include
+LIBRARY     = -L${HOME}/usr/lib
+
+TARGET      =  driver2
+
+.PHONY   : clean 
+
+VPATH = src
+
+${TARGET} : ${TARGET}.o 
+	g++ -g -Wall $^ ${LIBRARY} $(LDSTATIC) -o $@
+
+${TARGET}.o : ${TARGET}.cpp Blocks.h main.cpp
+	g++ -g -Wall ${INCLUDES} -c $< -o $@
+
+clean:
+	rm *.o ${TARGET}
+

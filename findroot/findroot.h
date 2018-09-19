@@ -1,0 +1,1 @@
+double findroot(double (*f)(double x), double l, double u, double tol = 0.000001);
