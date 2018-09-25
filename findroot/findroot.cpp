@@ -5,8 +5,8 @@
 double findroot(double (*f)(double x), double l, double u, 
                                       double tol = 0.000001)
   {
-    // tol is the tolerance value
-  // Insure an increasing function at the root.
+  // tol is the tolerance value
+  // Insure an increasing function at the root. 
   if( (f(u) < 0.0) or (f(l) > 0.0))
     {
     fprintf(stderr, "Illegal input.\n");
