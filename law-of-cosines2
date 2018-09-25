@@ -1,0 +1,3 @@
+#!/bin/sh
+dir="`dirname \"$0\"`"
+exec "$dir/law-of-cosines2.app/Contents/MacOS/law-of-cosines2" "$@"
