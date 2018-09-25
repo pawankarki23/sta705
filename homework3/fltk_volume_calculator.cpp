@@ -21,11 +21,11 @@ const int sp =    5;           // a little space
 const int h  =  5*(bh+sp)+sp;  // window height
 const int w  =  2*(bw+sp)+bw;  // window width
 
-  // some global variables
-  Fl_Float_Input* length = 0;
-  Fl_Float_Input* width = 0;
-  Fl_Float_Input* height = 0;
-  Fl_Output*      volume = 0;
+// some global variables
+Fl_Float_Input *length = 0;
+Fl_Float_Input *width = 0;
+Fl_Float_Input *height = 0;
+Fl_Output *volume = 0;
 
 void calc_CB(Fl_Widget*, void* v)
 {
@@ -36,9 +36,10 @@ void calc_CB(Fl_Widget*, void* v)
 
   if(l < 0.0 or b < 0.0 or h < 0.0)
   {
-    fl_alert("A length or width or height can not be negative.");
+    fl_alert("Length or width or height can not be negative.");
     return;
   }
+
   char value[100];
   sprintf(value, "%.2lf", (l*b*h));
   
@@ -48,7 +49,7 @@ void calc_CB(Fl_Widget*, void* v)
 
 int main()
 {
-  Fl_Double_Window* win = new Fl_Double_Window(w, h, "Calculate volume of a box");
+  Fl_Double_Window *win = new Fl_Double_Window(w, h, "Calculate volume of a box");
   win->begin();
   int x = bw;
   int y = sp;
@@ -63,11 +64,14 @@ int main()
   volume = new Fl_Output(x, y, bw, bh, "Volume");
   y += bh+sp;
   win->end();
+  
   length->value("0.0");
   width->value("0.0");
   height->value("0.0");
+  
   calc->callback(calc_CB);
   win->show();
+  
   return Fl::run();
 }
 
