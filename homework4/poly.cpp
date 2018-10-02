@@ -21,8 +21,9 @@ Fl_Box *spacer = 0;
 Fl_Check_Button *fill   = 0;
 Fl_Group *group = 0;
 Fl_Button *clear = 0;
+
+// change for homework 4
 Fl_Button *choose_color  = 0;
-Fl_Color c = FL_GRAY;  // initial color
 
 // callback to fill polygon
 void fill_cb(Fl_Widget* w, void*)
@@ -38,11 +39,12 @@ void clear_cb(Fl_Widget* w, void*)
   poly->redraw();
 }
 
+// change for homework 4
 // a callback to change the color of polygon when a color is chosen
 void choose_colr_cb(Fl_Widget*, void*)
 {
-  c = fl_show_colormap(c);
-  poly->polygon_color = c;
+  Fl_Color selected_color = fl_show_colormap(poly->polygon_color);
+  poly->polygon_color = selected_color;
   poly->redraw();
 }
 
@@ -61,6 +63,7 @@ int main()
     x += bw + sp;
     clear  = new Fl_Button(x, z, bw, bh, "Clear");      
     x += bw + sp;
+    // change for homework 4
     choose_color  = new Fl_Button(x, z, bw, bh, "Choose color");
     x += bw + sp;
     spacer = new Fl_Box(FL_NO_BOX, x, z, 1, bh, "");
@@ -72,7 +75,8 @@ int main()
   // assign callbacks
   fill->callback(fill_cb);
   clear->callback(clear_cb);
-  choose_color->color(c);
+
+  // change for homework 4
   choose_color->callback(choose_colr_cb);
 
   win->show();

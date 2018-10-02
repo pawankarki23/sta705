@@ -14,7 +14,7 @@ class Polygon : public Fl_Widget
   void    fill();
   
   public:
-  // change for homework
+  // change for homework 4
   Fl_Color polygon_color;
   int     n;
   bool    state;

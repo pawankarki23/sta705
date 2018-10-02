@@ -12,6 +12,7 @@ Polygon::Polygon(int x, int y, int w, int h) :  Fl_Widget(x, y ,w ,h)
 {
   box(FL_ENGRAVED_BOX);
   n  = 0;
+  // change for homework 4
   // default color - wildcat blue
   polygon_color = 0x0033a000;
 }
@@ -29,7 +30,7 @@ void Polygon::marks()
 
 void Polygon::fill()
 {
-  // use the polygon_color to fill the polygon
+  // change for homework 4 - change the color of the polygon
   fl_color(polygon_color);
   fl_begin_complex_polygon();
   for (int i = 0 ; i < n ; i++ )
