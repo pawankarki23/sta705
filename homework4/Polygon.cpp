@@ -1,21 +1,19 @@
 #include <cstdlib>
 #include <cstdio>
 #include <cstring>
-
 #include <FL/fl_draw.H>
 #include <FL/Fl.H>
 
-
+// custom header files 
 #include "Constants.h"
 #include "Polygon.h"
-
-// official UK Wildcat blue
-const Fl_Color WildcatBlue = 0x0033a000;
 
 Polygon::Polygon(int x, int y, int w, int h) :  Fl_Widget(x, y ,w ,h)
 {
   box(FL_ENGRAVED_BOX);
   n  = 0;
+  // default color - wildcat blue
+  polygon_color = 0x0033a000;
 }
 
 Polygon::~Polygon()
@@ -23,24 +21,26 @@ Polygon::~Polygon()
 }
   
 void Polygon::marks()
-  {
+{
   for (int i = 0 ; i < n ; i++ )
     fl_rectf(x()+xv[i]-2, y()+yv[i]-2, 5, 5);
   redraw();
-  }  
+}  
 
 void Polygon::fill()
-  {
-  fl_color(WildcatBlue);
+{
+  // use the polygon_color to fill the polygon
+  fl_color(polygon_color);
   fl_begin_complex_polygon();
   for (int i = 0 ; i < n ; i++ )
     fl_vertex(x() + xv[i], y() + yv[i]);
   fl_end_complex_polygon();
   redraw();
-  }  
+}  
 
+// this draw rountine will be called in redraw()
 void Polygon::draw()
-  {
+{
   // draw background
   fl_color(FL_WHITE);
   fl_rectf(x(), y(), w(), h());
@@ -50,10 +50,10 @@ void Polygon::draw()
     fill();
   else
     marks();
-  }
+}
   
 int Polygon::handle(int event)
-  {
+{
   int ret = Fl_Widget::handle(event);
   switch (event)
     {

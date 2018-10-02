@@ -15,10 +15,10 @@ Fl_Group*        group  = 0;
 Fl_Button*       clear  = 0;
 
 void fill_cb(Fl_Widget* w, void*)
-  {
+{
   poly->state = ((Fl_Check_Button*) w)->value();
   poly->redraw();
-  }
+}
 
 void clear_cb(Fl_Widget* w, void*)
   {
@@ -27,7 +27,7 @@ void clear_cb(Fl_Widget* w, void*)
   }
 
 int main()
-  {
+{
   Fl_Double_Window*  win = new Fl_Double_Window(ww, wh, "Draw a Polygon");
   win->begin();
   poly  = new     Polygon(sp, sp,       ww-2*sp, wh-bh-3*sp);
@@ -46,6 +46,6 @@ int main()
   clear->callback(clear_cb);
   win->show();
   return(Fl::run());
-  }
+}
 
 
