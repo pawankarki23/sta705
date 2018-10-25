@@ -1,0 +1,31 @@
+# automatic variables defined on page 111 of make book
+# $^ the names of all the prerequsites
+# $@ the name of the target
+# $< the name of the first prerequsite
+
+TARGET      =  driver
+
+.PHONY   : clean install
+
+VPATH = src
+
+${TARGET} : ${TARGET}.o Block.o Table.o
+	g++ -g -Wall $^  -o $@
+
+Table.o : Table.cpp Table.h
+	g++ -g -Wall  -c $< -o $@
+
+Block.o : Block.cpp Block.h
+	g++ -g -Wall  -c $< -o $@
+
+${TARGET}.o : ${TARGET}.cpp Block.h Table.h
+	g++ -g -Wall  -c $< -o $@
+
+clean:
+	rm *.o ${TARGET}
+
+install:
+	ar -cru           ${HOME}/usr/lib/liballen.a Block.o;\
+	cp src/Block.h   ${HOME}/usr/include;\
+	cp src/Block.cpp ${HOME}/usr/src
+

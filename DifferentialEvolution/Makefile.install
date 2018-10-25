@@ -1,0 +1,10 @@
+
+.PHONY :  install
+
+VPATH = src
+
+install:
+	ar -cru              ${HOME}/usr/lib/liballen.a Evolution.o;\
+	cp src/Evolution.h   ${HOME}/usr/include;\
+	cp src/Evolution.cpp ${HOME}/usr/src
+

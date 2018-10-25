@@ -3,21 +3,29 @@
 # $@ the name of the target
 # $< the name of the first prerequsite
 
-# commands executed to get fltk related includes and libraries
 INCLUDES    = `fltk-config --cxxflags`
 LIBRARY     = `fltk-config --ldstaticflags`
 
+# look for cpp and header file in directory called src
+VPATH = src
+
 .PHONY   : clean
 
-poly : poly.o  Polygon.o 
+hanoi : hanoi.o Towers.o TopMenu.o Peg.o
 	g++ -g -Wall $^  ${LIBRARY} -o $@
 
-Polygon.o : Polygon.cpp Polygon.h
+hanoi.o : hanoi.cpp Towers.h
 	g++ -g -Wall ${INCLUDES} -c $< -o $@
 
-poly.o : poly.cpp Polygon.h
+Peg.o : Peg.cpp Towers.h
+	g++ -g -Wall ${INCLUDES} -c $< -o $@
+
+TopMenu.o : TopMenu.cpp TopMenu.h
+	g++ -g -Wall ${INCLUDES} -c $< -o $@
+
+Towers.o : Towers.cpp Towers.h
 	g++ -g -Wall ${INCLUDES} -c $< -o $@
 
 clean:
-	rm *.o poly
+	rm *.o hanoi
 

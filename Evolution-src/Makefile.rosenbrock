@@ -1,0 +1,24 @@
+# Documentation for GNU make is given at
+# https://www.gnu.org/software/make/manual/make.html#toc-Index-of-Functions_002c-Variables_002c-_0026-Directives
+# Relevant here are the automatic variables:
+# $^ names of all prerequisites
+# $@ name of the target
+# $< name of first prerequisite 
+
+TARGET      =  rosenbrock
+.PHONY   : clean 
+
+VPATH = src
+
+${TARGET} : ${TARGET}.o  Evolution.o
+	g++  -g -Wall $^ -lm -o $@
+
+${TARGET}.o : ${TARGET}.cpp Evolution.h
+	g++ -g -Wall  -c $< -o $@
+
+Evolution.o : Evolution.cpp Evolution.h
+	g++ -g -Wall  -c $< -o $@
+
+clean:
+	rm *.o ${TARGET}
+

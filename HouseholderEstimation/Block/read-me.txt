@@ -1,0 +1,4 @@
+Here, a block is a matrix stored in column major format. This means the (i,j) element of a matrix A is addressed by A[j][i]. This is counter to convention, but has the advantage that A[j] can be passed to functions expecting a vector argument.
+
+The class Blocks has methods for constructing indicator matrices, matrices with continuous values, and intercept vectors. It also has methods for applying Householder transformations to an array of pointers to blocks as if the blocks had been adjoined. This feature simplifies computation of inferential statistics related to linear mixed models.
+
