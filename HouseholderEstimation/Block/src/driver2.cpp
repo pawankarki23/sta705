@@ -32,6 +32,7 @@ int main(int argc, char **argv)
   X->apply_transform(Y);
 
   Y->print(out, "Transformed Y");
+  
   double* Yx = Y->p[0];
   double* Yp = Yx + E->m;
   

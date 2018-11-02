@@ -128,7 +128,6 @@ int main(int argc, char **argv)
     double e = 0.0;
     if(estimable)
     {
-
         for(int i=0; i < E->m; i++)
         {
             fprintf(out, "\na[%d] = %12.6lf Yx[%d] = %12.6lf\n", i, i, a[i], Yx[i]);
