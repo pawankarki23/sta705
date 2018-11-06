@@ -5,11 +5,13 @@
 #include <stdio.h>
 
 class DEtable
-{
+  {
   public:
   void     load(double*);
   void     print(FILE* f, double* t );
   void     headings();
+  void     set_x0(double*);
+  double   compare(DEtable*);
   char**   head;     // pointers to labels
   char*    label;    // state labels
   int      c;        // characters per column
@@ -19,6 +21,6 @@ class DEtable
   double*  q;        // body in linear form
            DEtable(int m, int n);
           ~DEtable();
-};
+  };
 #endif
 

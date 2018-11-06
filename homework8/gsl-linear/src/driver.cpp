@@ -46,7 +46,7 @@ int main(int argc, char** argv)
   // Times 
   const int m = 101;
   double*   t = new double[m];
-  // time from 0 to 21/8
+  // time from 0 to 101/10
   for(int i = 0; i<m; i++) t[i] = i/10.0;
 
   // Create place for results (we will put time in first column)

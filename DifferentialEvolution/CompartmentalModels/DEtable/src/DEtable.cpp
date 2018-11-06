@@ -1,4 +1,5 @@
 #include <string.h>
+#include <math.h>
 
 #include "DEtable.h"
 
@@ -61,5 +62,23 @@ void DEtable::print(FILE* f, double* t)
 void DEtable::load(double* q)
   {
   memcpy(this->q, q, m*n*sizeof(double));
+  }
+
+// setting initial conditions
+void DEtable::set_x0(double* x0)
+  {
+  memcpy(p[0], x0, n*sizeof(double));
+  }
+
+// compare one table with another
+double DEtable::compare(DEtable* table)
+  {
+  if(m != table->m) return HUGE_VAL;
+  if(n != table->n) return HUGE_VAL;
+  double max = 0.0;
+  for(int i=0; i<m*n; i++)
+    if(fabs(q[i] - table->q[i]) > max)
+      max = fabs(q[i] - table->q[i]);
+  return max;    
   }
 

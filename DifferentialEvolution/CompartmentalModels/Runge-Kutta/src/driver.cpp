@@ -2,7 +2,6 @@
 #include <string.h>
 #include <stdio.h>
 
-// user defined header files saved using make install for DEsystem & DEtable
 #include <DEtable.h>
 #include <DEsystem.h>
 
@@ -44,8 +43,8 @@ int main(int argc, char* argv[])
   double     coef[]  = {-1, 0, 1,
                          1,-1, 0,
                          0, 1,-1};
-  double x0[]        = {100, 0, 0};      
-  double inf[]       = {0, 0, 0};             
+  double x0[]        = {0, 0, 0};      
+  double inf[]       = {10, 0, 0};             
   A->load(coef, x0, inf);
   A->print(logfile, "System values");
   
@@ -56,6 +55,7 @@ int main(int argc, char* argv[])
   Runge_Kutta* rk = new Runge_Kutta();  
   DEtable*      X = new DEtable(m, n);
   X->headings();
+  X->set_x0(A->initial);
   rk->solve(t, X, A);
   X->print(output, t);
   
