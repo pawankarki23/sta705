@@ -32,6 +32,7 @@ int main(int argc, char **argv)
   T->print(outfile, "Matrix T");
   T->TtT();
   T->print(outfile, "T-transpose T");
+  // log of determinent
   logdet = T->cholesky();
   if( logdet == HUGE_VAL)
     fprintf(outfile, "Matrix is not positive definite.\n");
@@ -41,7 +42,7 @@ int main(int argc, char **argv)
     fprintf(outfile,  "log determinant = %12.6g\n", logdet);
     }
 
-// Evaluate negative two log likelihood
+  // Evaluate negative two log likelihood
   double x[] = {1,1};
   double a[] = {4, -1, 3};
   Triangular* A = new Triangular(2);
