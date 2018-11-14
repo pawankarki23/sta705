@@ -14,7 +14,6 @@ Runge_Kutta::Runge_Kutta()
 // "data" contains system parameters
 int Runge_Kutta::solve(const double* time, DEtable* X, void* data)
   {
-  DEsystem*   A = (DEsystem*) data;
   int         s = 4;                       // number of stages 
   int         m = X->m;                    // number of time points
   int         n = X->n;                    // sizeof system
@@ -22,7 +21,6 @@ int Runge_Kutta::solve(const double* time, DEtable* X, void* data)
   DEtable*    Y = new DEtable(s, n);
   double      t, h;
   int         err = 0;
-  memcpy(X->p[0], A->initial, n*sizeof(double));
   for(int i = 1; i<m; i++)
     {
     t = time[i];
