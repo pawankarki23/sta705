@@ -1,0 +1,21 @@
+      0.1000     -1.2000      Objective = 147.22
+      0.1039      0.0713      Objective = 1.16886
+      0.3417      0.0812      Objective = 0.560225
+      0.4835      0.2404      Objective = 0.271137
+      1.5882      1.3086      Objective = 147.701
+      1.5857      2.5751      Objective = 0.711353
+      1.5697      2.4626      Objective = 0.324784
+      1.3268      1.7006      Objective = 0.462972
+      1.3002      1.6929      Objective = 0.090658
+      0.9966      0.9020      Objective = 0.831121
+      0.9968      0.9981      Objective = 0.00208808
+      1.0332      1.0661      Objective = 0.0012761
+      1.0011      1.0014      Objective = 5.50315e-05
+      1.0001      1.0002      Objective = 1.35901e-07
+      1.0000      1.0000      Objective = 3.49772e-10
+      1.0000      1.0000      Objective = 8.72861e-13
+      1.0000      1.0000      Objective = 2.18235e-15
+
+Final factored Hessian --- triangular
+     28.3196    -14.1245
+                  0.7062

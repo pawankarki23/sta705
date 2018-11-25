@@ -3,7 +3,7 @@ source("BOD.R")
 par(ask=TRUE)
 
 x <- c(16.8, 0.38)
-o <- optim(x, f, g, method="BFGS",hessian=TRUE )
+o <- optim(x, f, g, method="BFGS",hessian=TRUE ) # finding the min value
 
 # fq = function quadratic
 # x  = varialbe
