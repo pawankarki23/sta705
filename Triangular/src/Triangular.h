@@ -9,7 +9,9 @@ class Triangular
   int      mode;                           // 0 = if symmetric, 1 = if triangular
   double*  q; // storage of the matrix 
   void     check_mode(int required, const char* fun);//check the mode 
+  
   public:
+  int get_n();
   double** p; // points to q and returns specific element of q  
   void     print(FILE*, const char* = "");
   void     zero(int mode);                 // set every element to 0.0

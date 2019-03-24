@@ -12,6 +12,11 @@ the matrix is symmetric.
 
 #include "Triangular.h"
 
+int Triangular::get_n()
+{
+  return(n);
+}
+
 Triangular::Triangular(int n)
   {
   mode       = -1;

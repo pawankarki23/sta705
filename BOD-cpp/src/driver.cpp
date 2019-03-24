@@ -9,14 +9,14 @@
 Triangular* T = 0;
 
 class Data
-  {
+{
   public:
   int     n;
   double* t;
   double* y;
   void    print();
           Data(int, double*, double*);
-  };
+};
   
 Data::Data(int n, double* t, double* y)
   {
@@ -116,8 +116,9 @@ void print(FILE* f, double* x, int n, double obj)
 void inference(FILE* f, double* theta, Triangular* T, double s2)
   {
   if(!f) return;
+  
   char  label[12];
-  int      np = T->n;
+  int      np = T->get_n();
   double*   c = new double[np];
   double*   u = new double[np];
   fprintf(f, "\n%12s%12s%12s\n", "Parameter", "Estimate", "ese");
